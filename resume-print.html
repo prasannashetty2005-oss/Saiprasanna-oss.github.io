@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sai Prasanna G - Resume</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <style>
+    :root {
+      --primary-color: #1e3a8a;
+      --secondary-color: #0d9488;
+      --text-dark: #1f2937;
+      --text-light: #4b5563;
+      --border-color: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.5;
+      background-color: #f3f4f6;
+      padding: 40px 20px;
+    }
+
+    .resume-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    /* Print control bar */
+    .print-bar {
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .print-btn {
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 6px rgba(6, 182, 212, 0.15);
+      transition: opacity 0.2s;
+    }
+
+    .print-btn:hover {
+      opacity: 0.9;
+    }
+
+    .back-btn {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .back-btn:hover {
+      color: var(--primary-color);
+    }
+
+    /* Header Design */
+    header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .header-left h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .header-left h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-top: 5px;
+    }
+
+    .header-left p {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      margin-top: 8px;
+      max-width: 500px;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 0.875rem;
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .header-right a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .header-right a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Section Layout */
+    .resume-section {
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    /* Education & Internships */
+    .timeline-item {
+      margin-bottom: 15px;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .timeline-company {
+      color: var(--secondary-color);
+    }
+
+    .timeline-date {
+      color: var(--text-light);
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .timeline-sub {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    .timeline-bullets {
+      margin-left: 20px;
+      font-size: 0.875rem;
+      color: var(--text-light);
+    }
+
+    .timeline-bullets li {
+      margin-bottom: 3px;
+    }
+
+    /* Projects */
+    .project-item {
+      margin-bottom: 15px;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      margin-top: 3px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .skills-category {
+      font-size: 0.875rem;
+    }
+
+    .skills-category strong {
+      display: block;
+      color: var(--text-dark);
+      margin-bottom: 3px;
+    }
+
+    .skills-category span {
+      color: var(--text-light);
+    }
+
+    /* Achievements */
+    .achievements-list {
+      margin-left: 20px;
+      font-size: 0.875rem;
+      color: var(--text-light);
+    }
+
+    .achievements-list li {
+      margin-bottom: 5px;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+
+      .print-bar {
+        display: none;
+      }
+
+      .resume-container {
+        box-shadow: none;
+        padding: 0;
+        border-radius: 0;
+        max-width: 100%;
+      }
+
+      header {
+        border-bottom-color: #000000;
+      }
+
+      .section-title {
+        color: #000000;
+        border-bottom-color: #000000;
+      }
+
+      .header-left h1 {
+        color: #000000;
+      }
+
+      .header-left h2, .timeline-company {
+        color: #333333;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Controls for web view -->
+  <div class="print-bar">
+    <a href="index.html" class="back-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Back to Portfolio
+    </a>
+    <button onclick="window.print()" class="print-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print / Save PDF
+    </button>
+  </div>
+
+  <div class="resume-container">
+    <header>
+      <div class="header-left">
+        <h1>Sai Prasanna G</h1>
+        <h2>BCA Student | Cyber Security Enthusiast | Full Stack Developer</h2>
+        <p>Passionate about Cyber Security, AI, Data Analytics, and Web Development. Motivated to build real-world software solutions and security-focused applications.</p>
+      </div>
+      <div class="header-right">
+        <p>Email: <a href="mailto:prasannashetty2005@gmail.com">prasannashetty2005@gmail.com</a></p>
+        <p>Phone: <a href="tel:+917483231901">+91 74832 31901</a></p>
+        <p>GitHub: <a href="https://github.com/prasannashetty2005-oss" target="_blank">prasannashetty2005-oss</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/sai-prasanna-shetty-4843352a4" target="_blank">Sai Prasanna G</a></p>
+        <p>Bangalore, Karnataka</p>
+      </div>
+    </header>
+
+    <div class="resume-section">
+      <div class="section-title">Education</div>
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span>Bachelor of Computer Applications (BCA)</span>
+          <span class="timeline-date">2023 - Present</span>
+        </div>
+        <div class="timeline-sub">RNS First Grade College, Bangalore University</div>
+        <ul class="timeline-bullets">
+          <li><strong>CGPA:</strong> 7.45</li>
+          <li>Focused on software engineering principles, cyber security topics, database systems, and object-oriented programming.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <div class="section-title">Internships</div>
+      
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span>Cyber Security Intern</span>
+          <span class="timeline-date">Inspire Global Technology</span>
+        </div>
+        <div class="timeline-sub">Vulnerability Assessment & Web Security</div>
+        <ul class="timeline-bullets">
+          <li>Conducted Vulnerability Assessments and Penetration Testing on web applications.</li>
+          <li>Utilized Snyk Security Scanning to discover and patch package vulnerabilities.</li>
+          <li>Implemented GitHub Security scanning workflows for continuous integration pipeline monitoring.</li>
+          <li>Analyzed web application vulnerabilities including OWASP Top 10 risks.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <span>Django Full Stack Development Intern</span>
+          <span class="timeline-date">Mevi Technologies LLP</span>
+        </div>
+        <div class="timeline-sub">Backend Development & API Integration</div>
+        <ul class="timeline-bullets">
+          <li>Designed secure database models using SQLite and MySQL in Django applications.</li>
+          <li>Built scalable backend REST APIs and integrated frontend templates seamlessly.</li>
+          <li>Developed responsive user interfaces using HTML, CSS, and Bootstrap.</li>
+          <li>Optimized database queries and route controllers for faster load times.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <div class="section-title">Core Skills</div>
+      <div class="skills-grid">
+        <div class="skills-category">
+          <strong>Programming & Frameworks:</strong>
+          <span>Python, Java, Flask, Django, HTML5, CSS3, JavaScript (ES6)</span>
+        </div>
+        <div class="skills-category">
+          <strong>Databases & Tools:</strong>
+          <span>MySQL, SQLite, Git, GitHub, Version Control</span>
+        </div>
+        <div class="skills-category">
+          <strong>Cyber Security:</strong>
+          <span>Vulnerability Assessment, Penetration Testing, Snyk, Web Application Security</span>
+        </div>
+        <div class="skills-category">
+          <strong>Emerging Technologies:</strong>
+          <span>Data Analytics, Machine Learning Basics, Artificial Intelligence Concepts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <div class="section-title">Academic & Security Projects</div>
+      
+      <div class="project-item">
+        <div class="project-title">
+          <span>SAFEHIRE – Online Recruitment Fraud Detection System</span>
+          <span class="timeline-date">Security Lead</span>
+        </div>
+        <p class="project-desc">Developed a cybersecurity-focused system that detects fake job recruitment websites. Utilized risk analysis algorithm, scam keyword detection in descriptions, URL analysis (phishing indicators), and auto-generated threat assessment reports for job seekers.</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">
+          <span>Password Strength Checker</span>
+          <span class="timeline-date">Developer</span>
+        </div>
+        <p class="project-desc">A Python-based utility that evaluates the complexity of a user password based on length, character entropy, dictionary checks, and vulnerability databases. Provides remediation recommendations to improve credential security.</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">
+          <span>Encryption and Decryption System</span>
+          <span class="timeline-date">Developer</span>
+        </div>
+        <p class="project-desc">Designed a secure cryptography system in Python implementing symmetric and asymmetric cryptography libraries. Supports file and text encryption/decryption mechanisms to safeguard sensitive data.</p>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <div class="section-title">Key Achievements</div>
+      <ul class="achievements-list">
+        <li>Developed the <strong>SAFEHIRE Security Project</strong>, implementing threat intelligence models for recruitment fraud detection.</li>
+        <li>Successfully completed Cyber Security Internship at <strong>Inspire Global Technology</strong>.</li>
+        <li>Successfully completed Django Full Stack Internship at <strong>Mevi Technologies LLP</strong>.</li>
+        <li>Adept at deploying security audits utilizing automated tools (Snyk, GitHub Security workflows).</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
